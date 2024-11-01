@@ -5,14 +5,8 @@ import ReactDOM from "react-dom/client";
 import Main from "./src/components/Main";
 import Header from "./src/components/Header";
 import Footer from "./src/components/Footer";
-// import PopupWithForm from "./PopupWithForm";
-// import ImagePopup from "./ImagePopup";
 import api from "./src/utils/api";
 import { CurrentUserContext } from "./src/contexts/CurrentUserContext";
-// import EditProfilePopup from "./EditProfilePopup";
-// import EditAvatarPopup from "./EditAvatarPopup";
-// import AddPlacePopup from "./AddPlacePopup";
-// import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./src/components/ProtectedRoute";
 import * as auth from "./src/utils/auth.js";
 
@@ -53,6 +47,16 @@ const PopupWithForm = lazy(() => import('place/PopupWithForm').catch(() => {
 );
 
 
+const EditProfilePopup = lazy(() => import('profile/EditProfilePopup').catch(() => {
+        return {default: () => <div className='error'>Component is not available!</div>};
+    })
+);
+
+
+const EditAvatarPopup = lazy(() => import('profile/EditAvatarPopup').catch(() => {
+        return {default: () => <div className='error'>Component is not available!</div>};
+    })
+);
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
